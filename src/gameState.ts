@@ -87,10 +87,10 @@ export const getNewGameState = (): GameState => {
       offsetLeft: 40,
     },
     paddle: {
-      height: 15,
-      width: 74,
+      height: 10,
+      width: 75,
       y: 0,
-      x: canvas.width - 74,
+      x: canvas.width - 1,
     },
     keyState: {
       right: false,

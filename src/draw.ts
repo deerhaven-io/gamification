@@ -31,7 +31,7 @@ const drawBall = (ctx: CanvasRenderingContext2D, game : GameState): void => {
   const { ball } = game;
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2);
-  ctx.fillStyle = '#0097DD';
+  ctx.fillStyle = '#9999DD';
   ctx.fill();
   ctx.closePath();
 }
@@ -41,7 +41,7 @@ const drawPaddle = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, ga
   ctx.beginPath();
   //horizontal
   ctx.rect(paddle.x, canvas.height - paddle.y - paddle.height, paddle.width, paddle.height);
-  ctx.fillStyle = '#0095DD';
+  ctx.fillStyle = '#0000DD';
   ctx.fill();
   ctx.closePath();
 }
@@ -74,7 +74,7 @@ const drawBricks = (ctx: CanvasRenderingContext2D, game: GameState): void => {
               bricks[c][r].ball.y = brickY;
               ctx.beginPath();
               ctx.rect(brickX, brickY, brick.width, brick.height);
-              ctx.fillStyle = '#3095DD';
+              ctx.fillStyle = '#0000DD';
               ctx.fill();
               ctx.closePath();
           }

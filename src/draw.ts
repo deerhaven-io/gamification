@@ -1,4 +1,6 @@
-const collisionDetection = (game) => {
+import type { GameState } from "./gameState";
+
+const collisionDetection = (game: GameState): void => {
   const { brick, ball, bricks } = game;
   for (let c=0; c < brick.columnCount; c++) {
       for (let r=0; r < brick.rowCount; r++) {
@@ -25,7 +27,7 @@ const collisionDetection = (game) => {
   }
 }
 
-const drawBall = (ctx, game) => {
+const drawBall = (ctx: CanvasRenderingContext2D, game : GameState): void => {
   const { ball } = game;
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2);
@@ -34,8 +36,8 @@ const drawBall = (ctx, game) => {
   ctx.closePath();
 }
 
-const drawPaddle = (ctx, canvas, game) => {
-const { paddle } = game;
+const drawPaddle = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, game: GameState): void => {
+  const { paddle } = game;
   ctx.beginPath();
   //horizontal
   ctx.rect(paddle.x, canvas.height - paddle.y - paddle.height, paddle.width, paddle.height);
@@ -44,7 +46,7 @@ const { paddle } = game;
   ctx.closePath();
 }
 
-const drawGridLines = (ctx, canvas) => {
+const drawGridLines = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void => {
   for(let i = 0; i < canvas.width; i += 50) {
     ctx.beginPath();
     ctx.rect(i, 0, 1, canvas.height);
@@ -61,7 +63,7 @@ const drawGridLines = (ctx, canvas) => {
   }
 }
 
-const drawBricks = (ctx, game) => {
+const drawBricks = (ctx: CanvasRenderingContext2D, game: GameState): void => {
   const { brick, bricks } = game;
   for (let c=0; c < brick.columnCount; c++) {
       for (let r=0; r < brick.rowCount; r++) {
@@ -80,19 +82,19 @@ const drawBricks = (ctx, game) => {
   }
 }
 
-const drawScore = (ctx, game) => {
+const drawScore = (ctx: CanvasRenderingContext2D, game: GameState): void => {
   ctx.font = '16px Arial';
   ctx.fillStyle = '#8095DD';
   ctx.fillText('No Score: ' + game.score, 8, 20);
 }
 
-const drawLives = (ctx, canvas, game) => {
+const drawLives = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, game: GameState): void => {
   ctx.font = '16px Arial';
   ctx.fillStyle = '#0095DD';
   ctx.fillText('Lives: ' + game.lives, canvas.width-65, 20);
 }
 
-export const reRender = (ctx, canvas, game) => {
+export const reRender = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, game: GameState): void => {
   try {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     collisionDetection(game);

@@ -1,5 +1,6 @@
+import type { GameState } from "./gameState";
 
-const setKeyState = (e, val, gameState) => {
+const setKeyState = (e: any, val: boolean, gameState: GameState) => {
   const { keyMap, keyState, paddle, ball } = gameState;
   switch(e.keyCode) {
         case keyMap.right:
@@ -28,7 +29,7 @@ const setKeyState = (e, val, gameState) => {
     }
 }
 
-export const initKeyBindings = (gameState) => {
+export const initKeyBindings = (gameState: GameState) => {
   document.addEventListener("keydown", (e) => setKeyState(e, true, gameState), false);
   document.addEventListener("keyup", (e) => setKeyState(e, false, gameState), false);
 }

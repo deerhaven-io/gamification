@@ -1,6 +1,6 @@
-export const getGameCanvas = () => {
+export const getGameCanvas = (): HTMLCanvasElement => {
   const body = document.getElementsByTagName('body')[0];
-  let canvas = document.getElementById('gurle_canvas');
+  let canvas = document.getElementById('gurle_canvas') as HTMLCanvasElement;
   if(!canvas) {
     canvas = document.createElement('canvas');
     canvas.id = 'gurgle_canvas';

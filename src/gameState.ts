@@ -1,19 +1,79 @@
-import { getGameCanvas }  from './canvas.js';
+import { getGameCanvas } from './canvas';
 
 const canvas = getGameCanvas();
-const ctx =  canvas.getContext('2d');
+const _ctx = canvas.getContext('2d');
+if(!_ctx) throw new Error('2D rendering context is not defined');
+const ctx: CanvasRenderingContext2D = _ctx;
 
-export const getNewGameState = () => {
-  const newGameState = {
+interface Ball {
+  radius: number;
+  x: number;
+  y: number;
+  directionX: number;
+  directionY: number;
+  contactPaddle?: boolean;
+}
+
+interface Brick {
+  rowCount: number;
+  columnCount: number;
+  width: number;
+  height: number;
+  padding: number;
+  offsetTop: number;
+  offsetLeft: number;
+}
+
+export interface Paddle {
+  height: number;
+  width: number;
+  y: number;
+  x: number;
+}
+
+interface KeyState {
+  right: boolean;
+  left: boolean;
+  up: boolean;
+  down: boolean;
+  enter: boolean;
+}
+
+interface KeyMap {
+  right: number;
+  left: number;
+  up: number;
+  down: number;
+  spacebar: number;
+  enter: number;
+}
+
+export interface GameState {
+  canvas: HTMLCanvasElement;
+  ctx: CanvasRenderingContext2D;
+  score: number,
+  lives: number,
+  // TODO: update type
+  bricks: any[],
+  ball: Ball,
+  brick: Brick;
+  paddle: Paddle;
+  keyState: KeyState;
+  keyMap: KeyMap;
+  paused: boolean;
+};
+
+export const getNewGameState = (): GameState => {
+  const newGameState: GameState = {
     canvas,
     ctx,
     score: 0,
     lives: 5,
     bricks: [],
-    ball:  {
+    ball: {
       radius: 10,
-      x: canvas.width/2,
-      y: canvas.height-30,
+      x: canvas.width / 2,
+      y: canvas.height - 30,
       directionX: 2,
       directionY: -2,
     },
@@ -28,9 +88,9 @@ export const getNewGameState = () => {
     },
     paddle: {
       height: 15,
-      width:74,
+      width: 74,
       y: 0,
-      x: canvas.width-74,
+      x: canvas.width - 74,
     },
     keyState: {
       right: false,
@@ -47,11 +107,12 @@ export const getNewGameState = () => {
       spacebar: 32,
       enter: 13,
     },
+    paused: false,
   };
 
-  for (let c=0; c < newGameState.brick.columnCount; c += 1) {
+  for (let c = 0; c < newGameState.brick.columnCount; c += 1) {
     newGameState.bricks[c] = [];
-    for(let r=0; r < newGameState.brick.rowCount; r += 1) {
+    for (let r = 0; r < newGameState.brick.rowCount; r += 1) {
       newGameState.bricks[c][r] = { ball: { x: 2, y: 2 }, status: 1 };
     }
   }

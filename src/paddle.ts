@@ -1,4 +1,6 @@
-export const isBallTouchingPaddle = (game) => {
+import type { GameState } from "./gameState";
+
+export const isBallTouchingPaddle = (game: GameState) => {
   const { ball, paddle, canvas } = game;
 
   const matchOnX = (ball.x >= paddle.x && ball.x <= paddle.x + paddle.width);

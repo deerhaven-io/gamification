@@ -1,9 +1,9 @@
 'use strict';
-import { initKeyBindings } from './src/keyBinding.js';
-import { initMouseBindings } from './src/mouseBinding.js';
-import { reRender } from './src/draw.js';
-import { isBallTouchingPaddle } from './src/paddle.js';
-import game from './src/gameState.js';
+import { initKeyBindings } from './keyBinding';
+import { initMouseBindings } from './mouseBinding';
+import { reRender } from './draw';
+import { isBallTouchingPaddle } from './paddle';
+import game from './gameState';
 
 const { canvas, ctx, ball, bricks, brick, paddle, keyState } = game;
 

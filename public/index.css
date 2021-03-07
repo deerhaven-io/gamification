@@ -1,0 +1,13 @@
+#img {
+  display: block;
+  margin: auto;
+  height: 128px;
+  width: 128px;
+  padding: 2rem;
+}
+
+canvas {
+  display: block;
+  background: rgb(13, 68, 219);
+  margin: 2rem auto;
+}

@@ -2,3 +2,4 @@
 !.yarn/releases
 .pnp.js
 build
+node_modules

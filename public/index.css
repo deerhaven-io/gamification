@@ -1,13 +1,27 @@
-#img {
-  display: block;
-  margin: auto;
-  height: 128px;
-  width: 128px;
-  padding: 2rem;
+body {
+  background-color: rgb(56, 53, 53);
+  border-color:rgb(0, 0, 0)
 }
 
-canvas {
-  display: block;
-  background: rgb(13, 68, 219);
-  margin: 2rem auto;
+#world {
+  padding-bottom: 10px;
 }
+
+table {
+  background-color: rgb(0, 0, 0);
+  border:2px solid rgb(0, 0, 0)
+}
+
+td {
+  border: 1px solid rgb(143, 141, 141);
+  width: 10px;
+  height: 10px;
+}
+
+.cell-dead {
+background-color: white;
+}
+
+.cell-alive {
+  background-color: rgb(30, 18, 194);
+  }

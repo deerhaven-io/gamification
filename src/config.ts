@@ -1,6 +1,8 @@
+import type { Cell } from "./cell";
+
 export enum CellState {
   UNKNOWN = 'cell-invalid',
-  EMPTY = 'cell-dead',
+  EMPTY = 'cell-empty',
   ALIVE = 'cell-alive',
 }
 
@@ -13,3 +15,8 @@ export const config: IConfig = {
   rows: 50,
   columns: 50,
 };
+
+export interface IGameConfig {
+  onGameStart: (cells: Cell[]) => void;
+  onGameEnd: () => void;
+}

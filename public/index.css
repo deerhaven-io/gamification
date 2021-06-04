@@ -1,27 +1,36 @@
 body {
-  background-color: rgb(56, 53, 53);
-  border-color:rgb(0, 0, 0)
+  background-color: rgb(39, 39, 39);
 }
 
 #world {
   padding-bottom: 10px;
+  padding-left: 340px;
 }
 
 table {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   border:2px solid rgb(0, 0, 0)
 }
 
 td {
-  border: 1px solid rgb(143, 141, 141);
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
 }
 
-.cell-dead {
+.cell-empty {
 background-color: white;
 }
 
 .cell-alive {
   background-color: rgb(30, 18, 194);
+
+}
+
+#game_start{
+background-color: rgb(0, 25, 255);
+border: 1px solid rgb(50, 50, 50)
+}
+#game_start.pause{
+  background-color: rgb(255, 30, 0);
+  border: 1px solid rgb(56, 53, 53)
   }

@@ -15,7 +15,7 @@ export const initGame = async () => {
        doomed.className = CellState.EMPTY;
      })
       nextCells.forEach((cell) =>{
-        cell.state = CellState.ALIVE; // fix limited amounts of frames bug 
+        cell.state = CellState.ALIVE; 
       })
       setAliveCells(nextCells);
     },

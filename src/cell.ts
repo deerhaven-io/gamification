@@ -29,9 +29,18 @@ export class Cell {
    return `cell_x_${this.x}_y_${this.y}`
   }
 
+  _el: HTMLElement | null = null;
+
   getel(){
-    const ret = document.getElementById(this.getid())
-    if(!ret) throw new Error('no cell');
-    return ret
+    if(this._el) {
+      return this._el;
+    }
+
+    this._el = document.getElementById(this.getid())
+    if(!this._el){
+      this._el = document.createElement("tr")
+      this.state = CellState.UNKNOWN
+    }
+    return this._el;
    }
 }
